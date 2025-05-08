@@ -79,3 +79,5 @@ SNS（Xとinstagram）を用いて獲得を目指します
 - マップ検索機能 ← Google Maps API取得, gem geocoder
 - マルチ検索/オートコンプリート ← gem stimulus-rails
 - レーティング ← raty.js
+
+■画面遷移図
