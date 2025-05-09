@@ -80,4 +80,5 @@ SNS（Xとinstagram）を用いて獲得を目指します
 - マルチ検索/オートコンプリート ← gem stimulus-rails
 - レーティング ← raty.js
 
-■画面遷移図
+■画面遷移図\
+■ER図
