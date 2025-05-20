@@ -9,8 +9,12 @@
       <li><a>マップ</a></li>
       <li><a>マイページ</a></li>
       <div class="mx-4 border-l h-8 border-white opacity-50"></div>
-      <li><a>会員登録</a></li>
-      <li><a>ログイン</a></li>
+      <% if user_signed_in? %>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to '会員登録', new_user_registration_path %></li>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+      <% end %>
     </ul>
   </div>
 </div>
