@@ -1,0 +1,49 @@
+<div class="hero bg-base-200 min-h-screen">
+  <div class="hero-content w-full max-w-md mx-auto flex-col lg:flex-row-reverse">
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+          
+          <fieldset class="fieldset space-y-4">
+
+            <div>
+              <label class="label">
+                <span class="label-text">ニックネーム</span>
+              </label>
+              <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input input-bordered w-full" %>
+            </div>
+
+            <div>
+              <label class="label">
+                <span class="label-text">メールアドレス</span>
+              </label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered w-full" %>
+            </div>
+
+            <div>
+              <label class="label">
+                <span class="label-text">パスワード（<%= @minimum_password_length %>文字以上で入力してください）</span>
+              </label>
+              <%= f.password_field :password, autocomplete: "new-password", class: "input input-bordered w-full" %>
+            </div>
+
+            <div>
+              <label class="label">
+                <span class="label-text">確認用パスワード</span>
+              </label>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input input-bordered w-full" %>
+            </div>
+
+            <div class="mt-4">
+              <%= f.submit "会員登録", class: "btn btn-neutral w-full" %>
+            </div>
+            
+          </fieldset>
+        <% end %>
+
+        <%= render "users/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

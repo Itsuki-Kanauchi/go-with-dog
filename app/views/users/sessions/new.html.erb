@@ -1,0 +1,42 @@
+<div class="hero bg-base-200 min-h-screen">
+  <div class="hero-content w-full max-w-md mx-auto flex-col lg:flex-row-reverse">
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+          
+          <fieldset class="fieldset space-y-4">
+
+            <div>
+              <label class="label">
+                <span class="label-text">メールアドレス</span>
+              </label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered w-full" %>
+            </div>
+
+            <div>
+              <label class="label">
+                <span class="label-text">パスワード</span>
+              </label>
+              <%= f.password_field :password, autocomplete: "current-password", class: "input input-bordered w-full" %>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <%= f.check_box :remember_me, class: "checkbox" %>
+              <label class="label cursor-pointer">
+                <span class="label-text">ログイン情報を記憶しますか？</span>
+              </label>
+            </div>
+
+            <div class="mt-4">
+              <%= f.submit "ログイン", class: "btn btn-neutral w-full" %>
+            </div>
+            
+          </fieldset>
+        <% end %>
+
+        <%= render "users/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

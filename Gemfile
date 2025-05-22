@@ -58,3 +58,7 @@ end
 
 gem "tailwindcss-rails"
 gem "tailwindcss-ruby", "3.4.17"
+
+gem "devise"
+gem "rails-i18n"           # Rails全体の日本語対応（バリデーション、日付など）
+gem "devise-i18n"          # Deviseの翻訳ファイル（エラーメッセージなど）
