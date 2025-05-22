@@ -20,6 +20,15 @@
 
   <body>
     <%= render 'shared/header' %>
+
+    <% flash.each do |type, message| %>
+      <div class="alert <%= type == 'notice' ? 'alert-success' : 'alert-error' %> shadow-lg my-2">
+        <div>
+          <span><%= message %></span>
+        </div>
+      </div>
+    <% end %>
+
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>
