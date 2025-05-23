@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   # 開発環境限定で/letter_openerにアクセスできるようにする
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end  
+  end
 end
