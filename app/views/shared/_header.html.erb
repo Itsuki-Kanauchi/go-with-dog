@@ -1,11 +1,11 @@
 <div class="navbar" style="background-color: #75B1A9;">
   <div class="flex-1">
-    <a class="btn btn-ghost text-xl">わんことGO</a>
+    <%= link_to 'わんことGO', root_path, class: "btn btn-ghost text-xl" %>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
       <li><a>投稿する</a></li>
-      <li><a>レビュー検索</a></li>
+      <li><%= link_to 'レビュー検索', posts_path %></li>
       <li><a>マップ</a></li>
       <li><a>マイページ</a></li>
       <div class="mx-4 border-l h-8 border-white opacity-50"></div>
