@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
 
   root "static_pages#top"
+  resources :posts, only: %i[index]
 
   # 開発環境限定で/letter_openerにアクセスできるようにする
   if Rails.env.development?
