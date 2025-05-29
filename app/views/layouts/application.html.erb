@@ -23,7 +23,17 @@
 
     <div class="fixed top-16 left-0 w-full z-50">
       <% flash.each do |type, message| %>
-        <div class="alert <%= type == 'notice' ? 'alert-success' : 'alert-error' %> shadow-lg my-2">
+        <% alert_class =
+          case type.to_s
+          when 'notice', 'success'
+            'alert-success'  # 緑
+          when 'alert', 'danger', 'error'
+            'alert-error'    # 赤
+          else
+            'alert-info'     # 青など（任意）
+          end
+        %>
+        <div class="alert <%= alert_class %> shadow-lg my-2">
           <div>
             <span><%= message %></span>
           </div>
