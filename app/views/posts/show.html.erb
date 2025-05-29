@@ -1,0 +1,34 @@
+<div class="hero bg-base-200 min-h-screen py-12">
+  <div class="hero-content w-full max-w-3xl mx-auto flex-col lg:flex-row">
+    <div class="card bg-base-100 w-full shadow-2xl">
+      <div class="card-body space-y-6">
+
+        <!-- タイトル -->
+        <h2 class="text-3xl font-bold text-gray-800 border-b pb-2">
+          <%= @post.title %>
+        </h2>
+
+        <!-- 住所 -->
+        <div>
+          <p class="text-sm font-semibold text-gray-500 mb-1">住所</p>
+          <p class="text-lg text-gray-800"><%= @post.address %></p>
+        </div>
+
+        <!-- レビュー内容 -->
+        <div>
+          <p class="text-sm font-semibold text-gray-500 mb-1">レビュー内容</p>
+          <p class="text-base text-gray-800 whitespace-pre-line leading-[0.6]">
+            <%= @post.body %>
+          </p>
+        </div>
+
+        <!-- ボタン -->
+        <div class="card-actions justify-end mt-6">
+          <%= link_to '編集', posts_path, class: "btn btn-outline btn-sm" %>
+          <%= link_to '一覧に戻る', posts_path, class: "btn btn-neutral btn-sm" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

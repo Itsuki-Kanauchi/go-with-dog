@@ -1,7 +1,17 @@
-<div class="card bg-base-100 shadow-md">
+<div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-300">
   <div class="card-body">
-    <h2 class="card-title text-xl font-semibold"><%= post.title %></h2>
-    <p class="text-sm text-gray-500 mb-2"><%= post.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
-    <p><%= truncate(post.body, length: 100) %></p>
+    
+    <h2 class="card-title text-xl font-semibold">
+      <%= link_to post.title, post_path(post), class: "text-blue-600 hover:underline" %>
+    </h2>
+    
+    <p class="text-sm text-gray-500 mb-2">
+      <%= post.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+    </p>
+    
+    <p class="text-base text-gray-800">
+      <%= truncate(post.body, length: 100) %>
+    </p>
+
   </div>
 </div>
