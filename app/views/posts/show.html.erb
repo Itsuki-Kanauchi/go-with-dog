@@ -3,10 +3,19 @@
     <div class="card bg-base-100 w-full shadow-2xl">
       <div class="card-body space-y-6">
 
-        <!-- タイトル -->
-        <h2 class="text-3xl font-bold text-gray-800 border-b pb-2">
-          <%= @post.title %>
-        </h2>
+        <!-- タイトル＋投稿日 -->
+        <div class="flex justify-between border-b pb-1">
+          <div class="flex flex-col justify-end">
+            <h2 class="text-3xl font-bold text-gray-800 leading-tight">
+              <%= @post.title %>
+            </h2>
+          </div>
+          <div class="flex items-end">
+            <p class="text-sm text-gray-500">
+              <%= @post.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+            </p>
+          </div>
+        </div>
 
         <!-- 住所 -->
         <div>
