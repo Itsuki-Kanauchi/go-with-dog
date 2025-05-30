@@ -31,12 +31,19 @@
           </p>
         </div>
 
-        <!-- ボタン -->
-        <div class="card-actions justify-end mt-6 space-x-2">
-          <%= link_to '編集', edit_post_path(@post), class: "btn btn-outline btn-sm" %>
-          <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-error btn-sm" %>
-          <%= link_to '一覧に戻る', posts_path, class: "btn btn-neutral btn-sm" %>
-        </div>
+        <% if user_signed_in? && current_user == @post.user %>
+          <!-- ボタン -->
+          <div class="card-actions justify-end mt-6 space-x-2">
+            <%= link_to '編集', edit_post_path(@post), class: "btn btn-outline btn-sm" %>
+            <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-error btn-sm" %>
+            <%= link_to '一覧に戻る', posts_path, class: "btn btn-neutral btn-sm" %>
+          </div>
+        <% else %>
+          <!-- ログインユーザー以外は戻るボタンだけ表示 -->
+          <div class="card-actions justify-end mt-6">
+            <%= link_to '一覧に戻る', posts_path, class: "btn btn-neutral btn-sm" %>
+          </div>
+        <% end %>
 
       </div>
     </div>
