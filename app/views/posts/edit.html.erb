@@ -1,0 +1,46 @@
+<div class="hero bg-base-200 min-h-screen py-12">
+  <div class="hero-content w-full max-w-3xl mx-auto flex-col lg:flex-row">
+    <div class="card bg-base-100 w-full shadow-2xl">
+      <div class="card-body space-y-6">
+
+        <!-- フォーム -->
+        <%= form_with model: @post, local: true do |f| %>
+          <div class="form-control space-y-4">
+
+            <!-- タイトル -->
+            <div>
+              <label class="label">
+                <span class="label-text font-semibold text-gray-700">タイトル</span>
+              </label>
+              <%= f.text_field :title, class: "input input-bordered w-full" %>
+            </div>
+
+            <!-- 住所 -->
+            <div>
+              <label class="label">
+                <span class="label-text font-semibold text-gray-700">住所</span>
+              </label>
+              <%= f.text_field :address, class: "input input-bordered w-full" %>
+            </div>
+
+            <!-- レビュー内容 -->
+            <div>
+              <label class="label">
+                <span class="label-text font-semibold text-gray-700">レビュー内容</span>
+              </label>
+              <%= f.text_area :body, rows: 8, class: "textarea textarea-bordered w-full" %>
+            </div>
+
+            <!-- ボタン -->
+            <div class="flex justify-end space-x-2 pt-4">
+              <%= f.submit "更新する", class: "btn btn-primary btn-sm" %>
+              <%= link_to 'キャンセル', post_path(@post), class: "btn btn-outline btn-sm" %>
+            </div>
+
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
