@@ -21,11 +21,16 @@
 
           <!-- 編集・削除アイコン -->
           <div class="flex items-center space-x-2">
+            <!-- 編集ボタン -->
             <%= link_to edit_post_path(post), class: "hover:text-blue-600 transition" do %>
               <i class="fa-solid fa-pen-to-square"></i>
             <% end %>
-            <%= link_to post_path(post), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "hover:text-red-600 transition" do %>
-              <i class="fa-solid fa-trash"></i>
+
+            <!-- 削除ボタン（※link_toではなくform_withで対応） -->
+            <%= form_with url: post_path(post), method: :delete, class: "inline", data: { turbo_confirm: "本当に削除しますか？" } do %>
+              <button type="submit" class="hover:text-red-600 transition">
+                <i class="fa-solid fa-trash"></i>
+              </button>
             <% end %>
           </div>
         <% end %>
