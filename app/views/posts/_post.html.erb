@@ -1,7 +1,51 @@
-<div class="card bg-base-100 shadow-md">
-  <div class="card-body">
-    <h2 class="card-title text-xl font-semibold"><%= post.title %></h2>
-    <p class="text-sm text-gray-500 mb-2"><%= post.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
-    <p><%= truncate(post.body, length: 100) %></p>
+<div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-300">
+  <div class="card-body space-y-3">
+    
+    <div class="flex justify-between items-end border-b pb-1">
+      <div class="flex flex-col justify-end">
+        <h2 class="text-xl font-semibold leading-tight">
+          <%= link_to post.title, post_path(post), class: "text-blue-600 hover:underline" %>
+        </h2>
+      </div>
+
+      <!-- 日付とアイコン群 -->
+      <div class="flex items-center space-x-3 text-sm text-gray-500">
+        <!-- 日付 -->
+        <p>
+          <%= post.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+        </p>
+
+        <!-- 仕切り線 -->
+        <% if user_signed_in? && current_user == post.user %>
+          <div class="h-4 border-l border-gray-300"></div>
+
+          <!-- 編集・削除アイコン -->
+          <div class="flex items-center space-x-2">
+            <!-- 編集ボタン -->
+            <%= link_to edit_post_path(post), class: "hover:text-blue-600 transition" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+
+            <!-- 削除ボタン（※link_toではなくform_withで対応） -->
+            <%= form_with url: post_path(post), method: :delete, class: "inline", data: { turbo_confirm: "本当に削除しますか？" } do %>
+              <button type="submit" class="hover:text-red-600 transition">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- 住所 -->
+    <div class="text-sm text-gray-600">
+      <%= post.address %>
+    </div>
+
+    <!-- レビュー本文 -->
+    <p class="text-base text-gray-800">
+      <%= truncate(post.body, length: 100) %>
+    </p>
+
   </div>
 </div>
