@@ -1,14 +1,26 @@
 <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-300">
-  <div class="card-body">
+  <div class="card-body space-y-3">
     
-    <h2 class="card-title text-xl font-semibold">
-      <%= link_to post.title, post_path(post), class: "text-blue-600 hover:underline" %>
-    </h2>
-    
-    <p class="text-sm text-gray-500 mb-2">
-      <%= post.created_at.strftime("%Y年%m月%d日 %H:%M") %>
-    </p>
-    
+    <!-- タイトル + 日付（横並び、下揃え） -->
+    <div class="flex justify-between items-end border-b pb-1">
+      <div class="flex flex-col justify-end">
+        <h2 class="text-xl font-semibold leading-tight">
+          <%= link_to post.title, post_path(post), class: "text-blue-600 hover:underline" %>
+        </h2>
+      </div>
+      <div class="flex items-end">
+        <p class="text-sm text-gray-500">
+          <%= post.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+        </p>
+      </div>
+    </div>
+
+    <!-- 住所 -->
+    <div class="text-sm text-gray-600">
+      <%= post.address %>
+    </div>
+
+    <!-- レビュー本文 -->
     <p class="text-base text-gray-800">
       <%= truncate(post.body, length: 100) %>
     </p>
