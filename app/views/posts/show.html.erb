@@ -3,6 +3,14 @@
     <div class="card bg-base-100 w-full shadow-2xl">
       <div class="card-body space-y-6">
 
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+          <% @post.images.each do |image| %>
+            <a href="<%= image.url %>" target="_blank" rel="noopener">
+              <img src="<%= image.url %>" alt="投稿画像" class="w-full h-48 object-cover rounded-xl shadow hover:opacity-90 transition" />
+            </a>
+          <% end %>
+        </div>
+
         <!-- タイトル＋投稿日 -->
         <div class="flex justify-between border-b pb-1">
           <div class="flex flex-col justify-end">
@@ -26,9 +34,7 @@
         <!-- レビュー内容 -->
         <div>
           <p class="text-sm font-semibold text-gray-500 mb-1">レビュー内容</p>
-          <p class="text-base text-gray-800 whitespace-pre-line leading-[0.6]">
-            <%= @post.body %>
-          </p>
+          <p class="text-base text-gray-800 whitespace-pre-line leading-relaxed"><%= @post.body %></p>
         </div>
 
         <% if user_signed_in? && current_user == @post.user %>
