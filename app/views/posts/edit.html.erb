@@ -34,6 +34,16 @@
               <%= f.file_field :images, multiple: true, class: "file-input file-input-bordered w-full" %>
             </div>
 
+            <% if @post.images.present? %>
+              <div class="flex space-x-2 mb-4">
+                <% @post.images.each do |img| %>
+                  <div class="w-20 h-20 overflow-hidden rounded">
+                    <%= image_tag img.url, class: "object-cover w-full h-full" %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+
             <div class="mt-4">
               <%= f.submit "レビューを更新する", class: "btn btn-neutral w-full" %>
             </div>
