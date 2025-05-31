@@ -5,14 +5,15 @@
       <h1 class="text-3xl font-bold">みんなのレビュー</h1>
     </div>
 
-    <!-- 取り急ぎ検索ボックスを用意。後ほど検索機能実装の時再確認　-->
+    <!-- 検索ボックス　-->
     <div class="mb-8 w-full max-w-3xl mx-auto">
-      <%= form_with url: posts_path, method: :get, local: true do |f| %>
-        <div class="relative">
-          <%= f.text_field :q, value: params[:q], placeholder: "キーワードで検索（例：カフェ、イタリアンなど）", class: "input input-bordered w-full pr-20" %>
-          <div class="absolute inset-y-0 right-0 flex items-center">
-            <%= f.submit "検索", class: "btn btn-neutral rounded-l-none h-full" %>
-          </div>
+      <%= search_form_for @q, url: posts_path, method: :get, html: { class: "w-full" } do |f| %>
+        <div class="flex w-full">
+          <%= f.search_field :title_or_address_or_body_cont,
+              placeholder: "キーワードで検索（例：カフェなどのスポット名や、東京などの地名）",
+              class: "input input-bordered rounded-r-none w-full focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+
+          <%= f.submit "検索", class: "btn btn-neutral rounded-l-none" %>
         </div>
       <% end %>
     </div>
