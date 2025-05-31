@@ -3,6 +3,7 @@
     <div class="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl">
       <div class="card-body">
         <%= form_with model: @post, local: true, html: { multipart: true } do |f| %>
+          <%= render "posts/shared/error_messages", object: @post %>
 
           <fieldset class="fieldset space-y-4">        
 
