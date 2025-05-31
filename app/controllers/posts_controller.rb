@@ -46,15 +46,14 @@ class PostsController < ApplicationController
 
   def post_params
     permitted = params.require(:post).permit(:title, :address, :body, images: [])
-    
+
     if permitted[:images].present?
       # 空ファイルが混ざってる場合は除去
       permitted[:images].reject!(&:blank?)
     end
-  
+
     permitted.delete(:images) if permitted[:images].blank?
-    
     permitted
   end
-    
+
 end
