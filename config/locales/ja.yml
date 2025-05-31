@@ -6,4 +6,7 @@ ja:
       user: 
         name: "ニックネーム"
         email: "メールアドレス"
-        password: "パスワード"        
+        password: "パスワード"
+      post:
+        title: "スポット名"
+        body: "レビュー内容"

@@ -3,6 +3,7 @@
     <div class="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl">
       <div class="card-body">
         <%= form_with model: @post, local: true, html: { multipart: true } do |f| %>
+          <%= render "posts/shared/error_messages", object: @post %>
 
           <fieldset class="fieldset space-y-4">        
 
@@ -29,7 +30,7 @@
 
             <div>
               <label class="label">
-                <span class="label-text">画像アップロード</span>
+                <span class="label-text">画像アップロード（複数枚可能です！）</span>
               </label>
               <%= f.file_field :images, multiple: true, class: "file-input file-input-bordered w-full" %>
             </div>
