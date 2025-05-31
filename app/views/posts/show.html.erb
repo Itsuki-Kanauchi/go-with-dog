@@ -34,9 +34,7 @@
         <!-- レビュー内容 -->
         <div>
           <p class="text-sm font-semibold text-gray-500 mb-1">レビュー内容</p>
-          <p class="text-base text-gray-800 whitespace-pre-line leading-[0.6]">
-            <%= @post.body %>
-          </p>
+          <p class="text-base text-gray-800 whitespace-pre-line leading-relaxed"><%= @post.body %></p>
         </div>
 
         <% if user_signed_in? && current_user == @post.user %>
