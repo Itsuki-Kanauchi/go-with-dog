@@ -55,5 +55,4 @@ class PostsController < ApplicationController
     permitted.delete(:images) if permitted[:images].blank?
     permitted
   end
-
 end
