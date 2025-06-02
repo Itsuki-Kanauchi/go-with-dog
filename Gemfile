@@ -68,3 +68,4 @@ gem "carrierwave", "~> 3.0"
 gem "ransack", "~> 4.3.0"
 
 gem "dotenv-rails", groups: [:development, :test]
+gem "geocoder"

@@ -45,8 +45,9 @@ class PostsController < ApplicationController
   end
 
   def map
+    @posts = Post.where.not(latitude: nil, longitude: nil).includes(:user)
   end
-
+  
   private
 
   def post_params

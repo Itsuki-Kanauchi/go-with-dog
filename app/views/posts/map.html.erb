@@ -19,6 +19,14 @@
       center: { lat: 35.6803997, lng: 139.7690174 },
       zoom: 7
     });
+    // Postの情報からマーカーを追加する
+    <% @posts.each do |post| %>
+      new google.maps.Marker({
+        position: { lat: <%= post.latitude %>, lng: <%= post.longitude %> },
+        map: map,
+        title: '<%= j post.title %>'
+      });
+    <% end %>
   }
   // 後ほどcallback=initMapで呼ぶ際に備えてグローバルに登録
   window.initMap = initMap;

@@ -4,6 +4,9 @@ class Post < ApplicationRecord
 
   belongs_to :user
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   mount_uploaders :images, ImageUploader
 
   # 検索対象の属性を明示する
