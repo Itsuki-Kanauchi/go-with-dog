@@ -44,6 +44,9 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: "削除が完了しました！"
   end
 
+  def map
+  end
+
   private
 
   def post_params

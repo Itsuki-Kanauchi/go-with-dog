@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   }
 
   root "static_pages#top"
-  resources :posts, only: %i[index new create show edit destroy update]
+
+  resources :posts, only: %i[index new create show edit destroy update] do
+    collection do
+      get "map"
+    end
+  end
 
   # 開発環境限定で/letter_openerにアクセスできるようにする
   if Rails.env.development?
