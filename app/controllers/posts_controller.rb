@@ -44,6 +44,10 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: "削除が完了しました！"
   end
 
+  def map
+    @posts = Post.where.not(latitude: nil, longitude: nil).includes(:user)
+  end
+
   private
 
   def post_params

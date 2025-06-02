@@ -66,3 +66,6 @@ gem "devise-i18n"          # Deviseの翻訳ファイル（エラーメッセー
 
 gem "carrierwave", "~> 3.0"
 gem "ransack", "~> 4.3.0"
+
+gem "dotenv-rails", groups: [ :development, :test ]
+gem "geocoder"

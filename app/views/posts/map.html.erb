@@ -1,0 +1,35 @@
+<%# 地図を表示する場所を作る %>
+<div id="map"></div>
+
+<%# divタグでCSSを指定すると地図が表示されない %>
+<style>
+  #map {
+    width: 80vw;         /* 全体の80%の幅 */
+    height: 90vh;        /* 高さも同じく調整 */
+    margin: 0 auto;      /* 横中央に寄せる */
+  }
+</style>
+
+<script>
+  // mapをローカル変数として宣言
+  let map;
+  // Mapオブジェクトの作成処理
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: 35.6803997, lng: 139.7690174 },
+      zoom: 7
+    });
+    // Postの情報からマーカーを追加する
+    <% @posts.each do |post| %>
+      new google.maps.Marker({
+        position: { lat: <%= post.latitude %>, lng: <%= post.longitude %> },
+        map: map,
+        title: '<%= j post.title %>'
+      });
+    <% end %>
+  }
+  // 後ほどcallback=initMapで呼ぶ際に備えてグローバルに登録
+  window.initMap = initMap;
+</script>
+<%# callback=initMapでAPIが読み込まれた後に実行される関数を指定 %>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initMap" async defer></script>
